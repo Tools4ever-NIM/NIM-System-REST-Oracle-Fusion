@@ -1,0 +1,576 @@
+{
+    "$schema": "../rest-connector.json",
+    "schema": {
+        "crud_objects": {
+            "Employees": {
+                "operations": {
+                    "EmployeesList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "normal",
+                            "path": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/emps",
+                            "queryParameters": {
+                                "onlyData": false,
+                                "links": "self"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "items"
+                        }
+                    },
+                    "EmployeesCreate": {
+                        "method": "post",
+                        "call": {
+                            "mode": "normal",
+                            "path": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/emps",
+                            "extraHeaders": {
+                                "Content-Type": "application/json"
+                            }
+                        },
+                        "semantics": "create",
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "CitizenshipLegislationCode",
+                            "CitizenshipStatus",
+                            "Country",
+                            "EffectiveStartDate",
+                            "HireDate",
+                            "HomeFaxNumber",
+                            "HomePhoneNumber",
+                            "LastName",
+                            "LegalEntityId",
+                            "NationalId",
+                            "NationalIdCountry",
+                            "NationalIdType",
+                            "WorkEmail",
+                            "WorkFaxNumber",
+                            "WorkMobilePhoneNumber",
+                            "WorkPhoneNumber"
+                        ],
+                        "resource_prohibited": [
+                            "CreationDate",
+                            "LastUpdateDate",
+                            "TerminationDate",
+                            "WorkerType",
+                            "empsUniqID",
+                            "links"
+                        ]
+                    },
+                    "EmployeesUpdate": {
+                        "method": "patch",
+                        "call": {
+                            "mode": "normal",
+                            "path": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/emps/{empsUniqID}",
+                            "extraHeaders": {
+                                "Content-Type": "application/json",
+                                "Effective-Of": "{employee_effective_of}"
+                            }
+                        },
+                        "semantics": "update",
+                        "processing_options": {
+                            "output_field": null
+                        },
+                        "resource_allowance_default": "optional",
+                        "resource_mandatory": [
+                            "empsUniqID"
+                        ],
+                        "resource_prohibited": [
+                            "CitizenshipId",
+                            "CitizenshipLegislationCode",
+                            "Country",
+                            "CreationDate",
+                            "DriversLicenseId",
+                            "LastUpdateDate",
+                            "NationalIdCountry",
+                            "PassportId",
+                            "PersonId",
+                            "ReligionId",
+                            "TerminationDate",
+                            "WorkerType",
+                            "links"
+                        ]
+                    }
+                },
+                "key": "PersonId",
+                "resources": {
+                    "AddressLine1": "string*",
+                    "AddressLine2": "string*",
+                    "AddressLine3": "string*",
+                    "CitizenshipId": "string*",
+                    "CitizenshipLegislationCode": "string*",
+                    "CitizenshipStatus": "string*",
+                    "CitizenshipToDate": "date*",
+                    "City": "string*",
+                    "CorrespondenceLanguage": "string*",
+                    "Country": "string*",
+                    "CreationDate": "date*",
+                    "DateOfBirth": "date*",
+                    "DisplayName": "string*",
+                    "DriversLicenseExpirationDate": "date*",
+                    "DriversLicenseId": "string*",
+                    "DriversLicenseIssuingCountry": "string*",
+                    "EffectiveStartDate": "date*",
+                    "Ethnicity": "string*",
+                    "FirstName": "string*",
+                    "Gender": "string*",
+                    "HireDate": "date*",
+                    "HomeFaxAreaCode": "string*",
+                    "HomeFaxCountryCode": "string*",
+                    "HomeFaxExtension": "string*",
+                    "HomeFaxLegislationCode": "string*",
+                    "HomeFaxNumber": "string*",
+                    "HomePhoneAreaCode": "string*",
+                    "HomePhoneCountryCode": "string*",
+                    "HomePhoneExtension": "string*",
+                    "HomePhoneLegislationCode": "string*",
+                    "HomePhoneNumber": "string*",
+                    "Honors": "string*",
+                    "LastName": "string*",
+                    "LastUpdateDate": "date*",
+                    "LegalEntityId": "string*",
+                    "LicenseNumber": "string*",
+                    "MaritalStatus": "string*",
+                    "MiddleName": "string*",
+                    "MilitaryVetStatus": "string*",
+                    "NameSuffix": "string*",
+                    "NationalId": "string*",
+                    "NationalIdCountry": "string*",
+                    "NationalIdExpirationDate": "date*",
+                    "NationalIdPlaceOfIssue": "string*",
+                    "NationalIdType": "string*",
+                    "PassportExpirationDate": "date*",
+                    "PassportId": "string*",
+                    "PassportIssueDate": "date*",
+                    "PassportIssuingCountry": "string*",
+                    "PassportNumber": "string*",
+                    "PersonId": "string*",
+                    "PersonNumber": "string*",
+                    "PostalCode": "string*",
+                    "PreferredName": "string*",
+                    "PreviousLastName": "string*",
+                    "ProjectedTerminationDate": "date*",
+                    "Region": "string*",
+                    "Region2": "string*",
+                    "Religion": "string*",
+                    "ReligionId": "string*",
+                    "Salutation": "string*",
+                    "TerminationDate": "date*",
+                    "UserName": "string*",
+                    "WorkEmail": "string*",
+                    "WorkFaxAreaCode": "string*",
+                    "WorkFaxCountryCode": "string*",
+                    "WorkFaxExtension": "string*",
+                    "WorkFaxLegislationCode": "string*",
+                    "WorkFaxNumber": "string*",
+                    "WorkMobilePhoneAreaCode": "string*",
+                    "WorkMobilePhoneCountryCode": "string*",
+                    "WorkMobilePhoneExtension": "string*",
+                    "WorkMobilePhoneLegislationCode": "string*",
+                    "WorkMobilePhoneNumber": "string*",
+                    "WorkPhoneAreaCode": "string*",
+                    "WorkPhoneCountryCode": "string*",
+                    "WorkPhoneExtension": "string*",
+                    "WorkPhoneLegislationCode": "string*",
+                    "WorkPhoneNumber": "string*",
+                    "WorkerType": "string*",
+                    "links": [
+                        {
+                            "rel": "string*",
+                            "EmployeeUrl:href": "string*"
+                        }
+                    ],
+                    "empsUniqID": "string"
+                }
+            },
+            "Locations": {
+                "operations": {
+                    "LocationsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "normal",
+                            "path": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/locations"
+                        },
+                        "processing_options": {
+                            "output_field": "items"
+                        }
+                    }
+                },
+                "key": "LocationId",
+                "resources": {
+                    "ActiveStatus": "string*",
+                    "AddressLine1": "string*",
+                    "AddressLine2": "string*",
+                    "AddressLine3": "string*",
+                    "AddressLine4": "string*",
+                    "AnnualWorkingDurationUnits": "string*",
+                    "BillToSiteFlag": "boolean*",
+                    "Country": "string*",
+                    "CreationDate": "date*",
+                    "DeliverToSiteFlag": "boolean*",
+                    "Description": "string*",
+                    "EffectiveEndDate": "date*",
+                    "EffectiveStartDate": "date*",
+                    "EmailAddress": "string*",
+                    "EmployeeLocationFlag": "boolean*",
+                    "LastUpdateDate": "date*",
+                    "Latitude": "number*",
+                    "LocationCode": "string*",
+                    "LocationId": "string*",
+                    "LocationName": "string*",
+                    "Longitude": "number*",
+                    "MainAddressId": "string*",
+                    "OfficeSiteFlag": "boolean*",
+                    "PostalCode": "string*",
+                    "Provider": "string*",
+                    "ReceivableMaterials": "string*",
+                    "ReceivingSiteFlag": "boolean*",
+                    "Region1": "string*",
+                    "Region2": "string*",
+                    "Region3": "string*",
+                    "SetId": "string*",
+                    "ShipToSiteFlag": "boolean*",
+                    "StandardAnnualWorkingDuration": "number*",
+                    "StandardWorkingFrequency": "string*",
+                    "StandardWorkingHours": "number*",
+                    "TelephoneNumber1": "string*",
+                    "TelephoneNumber2": "string*",
+                    "TelephoneNumber3": "string*",
+                    "TownOrCity": "string*",
+                    "ValidationStatusCode": "string*"
+                }
+            },
+            "Departments": {
+                "operations": {
+                    "DepartmentsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "normal",
+                            "path": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/organizations"
+                        },
+                        "processing_options": {
+                            "output_field": "items"
+                        }
+                    }
+                },
+                "key": "OrganizationId",
+                "resources": {
+                    "ClassificationCode": "string*",
+                    "CreationDate": "date*",
+                    "EffectiveEndDate": "date*",
+                    "EffectiveStartDate": "date*",
+                    "InternalAddressLine": "string*",
+                    "LastUpdateDate": "date*",
+                    "LocationId": "string*",
+                    "Name": "string*",
+                    "OrgCode": "string*",
+                    "OrganizationCode": "string*",
+                    "OrganizationId": "string*",
+                    "Status": "string*",
+                    "Title": "string*"
+                }
+            },
+            "Jobs": {
+                "operations": {
+                    "JobsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "normal",
+                            "path": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/jobs"
+                        },
+                        "processing_options": {
+                            "output_field": "items"
+                        }
+                    }
+                },
+                "key": "JobId",
+                "resources": {
+                    "ActiveStatus": "string*",
+                    "AnnualWorkingDurationUnits": "string*",
+                    "ApprovalAuthority": "number*",
+                    "CreationDate": "date*",
+                    "EffectiveEndDate": "date*",
+                    "EffectiveStartDate": "date*",
+                    "FullPartTime": "string*",
+                    "GradeLadderId": "string*",
+                    "JobCode": "string*",
+                    "JobFamilyId": "string*",
+                    "JobFunctionCode": "string*",
+                    "JobId": "string*",
+                    "JobSubFamily": "string*",
+                    "LastUpdateDate": "date*",
+                    "ManagerLevel": "string*",
+                    "MedicalCheckupRequired": "string*",
+                    "Name": "string*",
+                    "RegularTemporary": "string*",
+                    "SchedulingGroup": "string*",
+                    "SetId": "string*",
+                    "StandardAnnualWorkingDuration": "number*",
+                    "StandardWorkingFrequency": "string*",
+                    "StandardWorkingHours": "number*"
+                }
+            },
+            "Positions": {
+                "operations": {
+                    "PositionsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "normal",
+                            "path": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/positions"
+                        },
+                        "processing_options": {
+                            "output_field": "items"
+                        }
+                    }
+                },
+                "key": "PositionId",
+                "resources": {
+                    "ActiveStatus": "string*",
+                    "BudgetAmount": "number*",
+                    "BudgetAmountCurrency": "string*",
+                    "BudgetedPositionFlag": "boolean*",
+                    "BusinessUnitId": "string*",
+                    "CalculateFTE": "string*",
+                    "CostCenter": "string*",
+                    "CreationDate": "date*",
+                    "DelegatePositionId": "string*",
+                    "DepartmentId": "string*",
+                    "EffectiveEndDate": "date*",
+                    "EffectiveStartDate": "date*",
+                    "EntryGradeId": "string*",
+                    "EntryStepId": "string*",
+                    "FTE": "number*",
+                    "FullPartTime": "string*",
+                    "FundedByExistingPositionFlag": "boolean*",
+                    "GradeLadderId": "string*",
+                    "HeadCount": "number*",
+                    "HiringStatus": "string*",
+                    "JobId": "string*",
+                    "LastUpdateDate": "date*",
+                    "LocationId": "string*",
+                    "Name": "string*",
+                    "OverlapAllowedFlag": "boolean*",
+                    "PositionCode": "string*",
+                    "PositionId": "string*",
+                    "PositionType": "string*",
+                    "ProbationPeriod": "number*",
+                    "RegularTemporary": "string*",
+                    "SeasonalEndDate": "date*",
+                    "SeasonalFlag": "boolean*",
+                    "SeasonalStartDate": "date*",
+                    "SecurityClearance": "string*"
+                }
+            },
+            "Workers": {
+                "operations": {
+                    "WorkersList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "normal",
+                            "path": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/workers"
+                        },
+                        "processing_options": {
+                            "output_field": "items"
+                        }
+                    }
+                },
+                "key": "PersonId",
+                "resources": {
+                    "ApplicantNumber": "string*",
+                    "BloodType": "string*",
+                    "BloodTypeMeaning": "string*",
+                    "CorrLanguageMeaning": "string*",
+                    "CorrespondenceLanguage": "string*",
+                    "CountryOfBirth": "string*",
+                    "CountryOfBirthName": "string*",
+                    "CreatedBy": "string*",
+                    "CreationDate": "date*",
+                    "DateOfBirth": "date*",
+                    "DateOfDeath": "date*",
+                    "DisplayName": "string*",
+                    "FullName": "string*",
+                    "LastUpdateDate": "date*",
+                    "LastUpdatedBy": "string*",
+                    "ListName": "string*",
+                    "PersonId": "string*",
+                    "PersonNumber": "string*",
+                    "RegionOfBirth": "string*",
+                    "TownOfBirth": "string*"
+                }
+            },
+            "Assignments": {
+                "operations": {
+                    "AssignmentsList": {
+                        "method": "get",
+                        "call": {
+                            "mode": "iteration",
+                            "table": "Employees_links",
+                            "iterator": "EmployeeUrl",
+                            "iterator_columns": [
+                                "Employees_PersonId"
+                            ],
+                            "filter": {
+                                "attribute": "rel",
+                                "operation": "contains",
+                                "value": "self"
+                            },
+                            "path": "{iterator}/child/assignments",
+                            "base": {
+                                "PersonId": "{Employees_PersonId}"
+                            }
+                        },
+                        "processing_options": {
+                            "output_field": "items"
+                        }
+                    }
+                },
+                "key": "AssignmentId",
+                "keyRefs": [
+                    "PersonId"
+                ],
+                "resources": {
+                    "PersonId": "string*",
+                    "ActionCode": "string*",
+                    "ActionReasonCode": "string*",
+                    "ActualTerminationDate": "date*",
+                    "AssignmentCategory": "string*",
+                    "AssignmentId": "string*",
+                    "AssignmentName": "string*",
+                    "AssignmentNumber": "string*",
+                    "AssignmentProjectedEndDate": "date*",
+                    "AssignmentStatus": "string*",
+                    "AssignmentStatusTypeId": "string*",
+                    "BusinessUnitId": "string*",
+                    "CreationDate": "date*",
+                    "DefaultExpenseAccount": "string*",
+                    "DepartmentId": "string*",
+                    "EffectiveEndDate": "date*",
+                    "EffectiveStartDate": "date*",
+                    "EndTime": "string*",
+                    "Frequency": "string*",
+                    "FullPartTime": "string*",
+                    "GradeId": "string*",
+                    "GradeLadderId": "string*",
+                    "JobId": "string*",
+                    "LastUpdateDate": "date*",
+                    "LegalEntityId": "string*",
+                    "LocationId": "string*",
+                    "ManagerAssignmentId": "string*",
+                    "ManagerId": "string*",
+                    "ManagerType": "string*",
+                    "OriginalHireDate": "date*",
+                    "PeopleGroup": "string*",
+                    "PeriodOfServiceId": "string*",
+                    "PersonTypeId": "string*",
+                    "PositionId": "string*",
+                    "PrimaryAssignmentFlag": "boolean*",
+                    "PrimaryWorkRelationFlag": "boolean*",
+                    "PrimaryWorkTermsFlag": "boolean*",
+                    "ProbationPeriodEndDate": "date*",
+                    "ProbationPeriodLength": "number*",
+                    "ProbationPeriodUnitOfMeasure": "string*",
+                    "ProjectedStartDate": "date*",
+                    "ProposedPersonTypeId": "string*",
+                    "RegularTemporary": "string*",
+                    "SalaryAmount": "number*",
+                    "SalaryBasisId": "string*",
+                    "SalaryCode": "string*",
+                    "StartTime": "string*",
+                    "TermsEffectiveStartDate": "date*",
+                    "WorkTaxAddressId": "string*",
+                    "WorkerCategory": "string*",
+                    "WorkingAsManager": "string*",
+                    "WorkingAtHome": "string*",
+                    "WorkingHours": "number*"
+                }
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "baseUrl": "",
+            "get": {
+                "maxPageCount": -1,
+                "queryParameters": {
+                    "onlyData": true
+                },
+                "pagination": {
+                    "mode": "skip_take",
+                    "zero_based": true,
+                    "page_size": "{page_size}",
+                    "params": {
+                        "limit": "{take_count}",
+                        "offset": "{skip_count}"
+                    }
+                }
+            },
+            "authentication": "basic_auth",
+            "call_handling": "generic",
+            "test_connection": {
+                "url": "https://{tenant_id}/hcmRestApi/resources/11.13.18.05/workers?limit=1&offset=0&onlyData=true"
+            },
+            "accept": "application/json",
+            "retry": [
+                {
+                    "type": "statusCode",
+                    "statusCode": 429,
+                    "retry": {
+                        "type": "simple",
+                        "maxCount": 5,
+                        "waitTime": 30
+                    }
+                }
+            ]
+        }
+    },
+    "connection": {
+        "items": [
+            {
+                "name": "tenant_id",
+                "type": "textbox",
+                "label": "Oracle Fusion Hostname:",
+                "value": "",
+                "tooltip": "For example: servername.fa.us2.oraclecloud.com (without https:// or a path).",
+                "required": true,
+                "order": 1
+            },
+            {
+                "name": "user_name",
+                "type": "textbox",
+                "label": "Username:",
+                "value": "",
+                "required": true,
+                "order": 2
+            },
+            {
+                "name": "password",
+                "type": "textbox",
+                "label": "Password:",
+                "value": "",
+                "password": true,
+                "required": true,
+                "order": 3
+            },
+            {
+                "name": "page_size",
+                "type": "textbox",
+                "label": "Page Size:",
+                "value": "25",
+                "tooltip": "Use a positive integer no larger than the page size allowed by your Oracle environment.",
+                "required": true,
+                "order": 4
+            },
+            {
+                "name": "employee_effective_of",
+                "type": "textbox",
+                "label": "Employee Update Effective-Of:",
+                "value": "RangeMode=CORRECTION",
+                "tooltip": "Oracle date-effective update header. Use RangeMode=UPDATE;RangeStartDate=yyyy-MM-dd to apply a dated update.",
+                "required": true,
+                "order": 5
+            }
+        ]
+    }
+}
